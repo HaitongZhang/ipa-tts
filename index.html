@@ -22,17 +22,17 @@
 
     <p><strong><mark>Section 1: The impact of input processing modules</mark></strong></p>
 
-    <p>To investigate whether the way to process them has an impact on the CL VL performance, we consider two different processing modules: 
+    <p>To investigate whether the way to process them has an impact on the CL VL performance, we consider two different processing modules: </p>
     
-    1) SEA: use Separate Embedding sequences for IPA and tone/stress, then Add two embedding sequences to form the final input embedding; 
+    <p>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1. SEA: use Separate Embedding sequences for IPA and tone/stress, then Add two embedding sequences to form the final input embedding; </p>
 
-    2) UEI: use Unified Embedding for IPA and tone/stress, then take each embedding as an Independent input in the final input embedding.</p>
-
-
-
-    <p>The following samples refer to Section 4.1 in the paper, in which we investigate whether two different input modules impact the crosslingual voice cloning performance. The models investigated include MSEA(the model with SEA) and MUEI(the model with UEI).</p>
+    <p>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2. UEI: use Unified Embedding for IPA and tone/stress, then take each embedding as an Independent input in the final input embedding.</p>
 
 
+
+    <p>The following samples refer to Section 4.1 in the paper. The models investigated include MSEA (the model with SEA) and MUEI (the model with UEI).</p>
 
 
 
@@ -51,7 +51,7 @@
     </p>
 
     
-    <p><b>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp MSEA
+    <p><b>   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp MSEA
         &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp MUEI  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
 
     <p>Chinese speaker</p>
@@ -92,7 +92,7 @@
         您的浏览器不支持该音频格式。
     </audio>
     </p>
-    <p><b>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp MSEA
+    <p><b>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp MSEA
                 &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp MUEI  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
 
     <p>Chinese speaker</p>
@@ -136,10 +136,10 @@
     We hypothesize that this result can be attributed to the fact that (1) there are some non-overlapped IPA symbols across two target languages; (2) the suprasegmental, including tone and stress, are unique to only one of the target languages. To test our hypothesizes, we devised two input perturbation methods. </p>
     
     <p>
-    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1. IPA perturbation: Replace all the IPA symbols in testing sentences in one language with the non-overlapped IPA symbols from the other language randomly. To remove the potential effect of tone/stress, we replace all tone/stress symbols with the special non-tone symbol. </p>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>1. IPA perturbation:</b> Replace all the IPA symbols in testing sentences in one language with the non-overlapped IPA symbols from the other language randomly. To remove the potential effect of tone/stress, we replace all tone/stress symbols with the special non-tone symbol. </p>
 
     <p>
-    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2. Tone/stress perturbation: Replace all tone symbols in Chinese testing sentences with the primary stress symbol in English, or replace all stress symbols in English testing sentences with the mid-tone in Chinese. To remove the potential effect of the non-overlapped IPA symbols, we replace them with their closest IPA symbols. </p>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>2. Tone/stress perturbation:</b> Replace all tone symbols in Chinese testing sentences with the primary stress symbol in English, or replace all stress symbols in English testing sentences with the mid-tone in Chinese. To remove the potential effect of the non-overlapped IPA symbols, we replace them with their closest IPA symbols. </p>
 
     <p>
      We use these two input perturbation methods to modify the original testing sentences and create in total six test datasets: CH and EN (original Chinese and English test data), CH_IP and EN_IP (Chinese and English test data with IPA perturbation), and CH_TP and EN_SP (Chinese and English test data with tone/stress perturbation).
@@ -227,17 +227,17 @@
 
     <p> In this section, we continued the investigation by proposing the following hypothesizes.  </p>
 
-    <p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hypothesis 1: The secondary or indirect reason our models fail CL VL is that we only use two speakers as training data. In other words, as we increase the number of speakers, this failure can be avoided. </p>
+    <p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>Hypothesis 1:</b> The secondary or indirect reason our models fail CL VL is that we only use two speakers as training data. In other words, as we increase the number of speakers, this failure can be avoided. </p>
 
-    <p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hypothesis 2: Increasing the number of speakers in only one language would result in success to CL VL for speakers in this language, but a failure for the speaker in the other language. </p>
+    <p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>Hypothesis 2:</b> Increasing the number of speakers in only one language would result in success to CL VL for speakers in this language, but a failure for the speaker in the other language. </p>
 
 
     <p> To test our hypothesizes we compared several model variants trained with different subsets of Dataset2: </p>
 
-    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp C1E1: Model trained with one Chinese speaker and one English speaker; </p>
-    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp C1E4: Model trained with one Chinese speaker and four English speakers;</p>
-    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp C4E1: Model trained with four Chinese speakers and one English speaker;</p>
-    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp C4E4: Model trained with four Chinese speakers and four English speakers.</p>
+    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>C1E1:</b> Model trained with one Chinese speaker and one English speaker; </p>
+    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>C1E4:</b> Model trained with one Chinese speaker and four English speakers;</p>
+    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>C4E1:</b> Model trained with four Chinese speakers and one English speaker;</p>
+    <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <b>C4E4:</b> Model trained with four Chinese speakers and four English speakers.</p>
 
     
 
