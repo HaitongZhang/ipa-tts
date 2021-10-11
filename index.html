@@ -197,14 +197,92 @@
 
     <p>English  speaker
     <audio controls>
-        <source src="wavs/demo1/SEA/test_EN/SEA_test_EN_Biaobei_010.wav" type="audio/wav">
+        <source src="wavs/demo1/SEA/test_EN/SEA_test_EN_LJ_010.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
 
     <audio controls>
-        <source src="wavs/demo1/SEI/test_EN/SEI_test_EN_Biaobei_010.wav" type="audio/wav">
+        <source src="wavs/demo1/SEI/test_EN/SEI_test_EN_LJ_010.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
+    </p>
+
+
+
+
+    <p><strong><mark>Why fails cross-lingual voice cloning</mark></strong></p>
+
+    <p>We learn from an informal listening test that many Chinese utterances synthesized using the English speaker's voice sound like the Chinese speaker and English utterances synthesized using the Chinese speaker's voice sound like the English speaker. In other words, only using IPA does not guarantee a perfect disentanglement between speaker identities and language symbols.
+    
+    We hypothesize that this result can be attributed to the fact that (1) there are some non-overlapped IPA symbols across two target languages; (2) the suprasegmental, including tone and stress, are unique to only one of the target languages. To test our hypothesizes, we devised two input perturbation methods.
+    
+    IPA perturbation: Replace all the IPA symbols in testing sentences in one language with the non-overlapped IPA symbols from the other language randomly. To remove the potential effect of tone/stress, we replace all tone/stress symbols with the special non-tone symbol.
+
+    Tone/stress perturbation: Replace all tone symbols in Chinese testing sentences with the primary stress symbol in English, or replace all stress symbols in English testing sentences with the mid-tone in Chinese. To remove the potential effect of the non-overlapped IPA symbols, we replace them with their closest IPA symbols.
+
+     We use these two input perturbation methods to modify the original testing sentences and create in total six test datasets: CH and EN (original Chinese and English test data), CH_IP and EN_IP (Chinese and English test data with IPA perturbation), and CH_TP and EN_SP (Chinese and English test data with tone/stress perturbation).
+
+    </p>
+
+
+    <p><mark><Note: Since using the proposed IPA or tone/stress perturbation may result in non-intelligible or accented speech, please focus on the speaker similarity.</mark></p>
+
+
+    <p><i>Original Chinese text: "你想玩点什么."    Original English text: "PLANNING THE TEXAS TRIP." </i></p>
+
+
+    <p><b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp CH
+                        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp CH_IP
+                        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp CH_TP
+                        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EN
+                        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EN_IP
+                        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EN_SP
+                        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
+
+
+    <p>Chinese speaker
+    
+    <audio controls> <source src="wavs/demo2/test_CH/SEI_test_CH_Biaobei_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+    </audio>
+    
+    <audio controls> <source src="wavs/demo2/test_CH_IP/SEI_test_CH_IP_Biaobei_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    <audio controls> <source src="wavs/demo2/test_CH_TP/SEI_test_CH_TP_Biaobei_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    <audio controls> <source src="wavs/demo2/test_EN/SEI_test_EN_Biaobei_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    <audio controls> <source src="wavs/demo2/test_EN_IP/SEI_test_EN_IP_Biaobei_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    <audio controls> <source src="wavs/demo2/test_EN_SP/SEI_test_EN_SP_Biaobei_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    </p>
+
+
+    <p>English speaker
+
+    <audio controls> <source src="wavs/demo2/test_CH/SEI_test_CH_LJ_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+            </audio>
+
+    <audio controls> <source src="wavs/demo2/test_CH_IP/SEI_test_CH_IP_LJ_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+                    </audio>
+
+    <audio controls> <source src="wavs/demo2/test_CH_TP/SEI_test_CH_TP_LJ_009.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+                    </audio>
+
+
+    <audio controls> <source src="wavs/demo2/test_EN/SEI_test_EN_LJ_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+                    </audio>
+
+    <audio controls> <source src="wavs/demo2/test_EN_IP/SEI_test_EN_IP_LJ_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+                    </audio>
+
+    <audio controls> <source src="wavs/demo2/test_EN_SP/SEI_test_EN_SP_LJ_010.wav" type="audio/wav"> 您的浏览器不支持该音频格式。
+                    </audio>
     </p>
 
 
