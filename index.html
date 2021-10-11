@@ -15,10 +15,9 @@
 
     <p><b>Abstract:</b></p> 
     
+    <p>International Phonetic Alphabet (IPA) has been widely used in cross-lingual text-to-speech (TTS) to achieve cross-lingual voice cloning (CL VC). However, IPA itself has been understudied in cross-lingual TTS. In this paper, we report some empirical findings of building a cross-lingual TTS model using IPA as inputs. Experiments show that the way to process the IPA  and suprasegmental sequence has a negligible impact on the CL VC performance. Furthermore, we find that using a dataset including one speaker per language to build an IPA-based TTS system would fail CL VC since the language-unique IPA and tone/stress symbols could leak the speaker information. In addition, we experiment with different combinations of speakers in the training dataset to further investigate the effect of the number of speakers on the CL VC performance.</p>
 
 
-
-    <p> Recently, few-shot voice cloning has achieved a significant improvement. However, most models for few-shot voice cloning are single-modal, and multi-modal few-shot voice cloning has been understudied. In this paper, we propose to use multi-modal learning to improve the few-shot voice cloning performance. Inspired by the recent works on unsupervised speech representation, the proposed multi-modal system is built by extending Tacotron2 with an unsupervised speech representation module. We evaluate our proposed system in two few-shot voice cloning scenarios, namely few-shot text-to-speech(TTS) and voice conversion(VC). Experimental results demonstrate that the proposed multi-modal learning can significantly improve the few-shot voice cloning performance over their counterpart single-modal systems.</p>
 
     <!-- <p><strong><mark>Results on the multi-speaker TTS scenario</mark></strong></p>
 
@@ -112,40 +111,70 @@
     -->
 
 
-    <p><strong><mark>Few-shot TTS scenario</mark></strong></p>
+    <p><strong><mark>The impact of input processing modules</mark></strong></p>
 
-    <p>These samples refer to Section 4.1 in the paper, in which we investigate the effectiveness of our proposed system in few-shot TTS. The models investigated include:</p>
+    <p>To investigate whether the way to process them has an impact on the CL VL performance, we consider two different processing modules: 
+    
+    1) SEA: use Separate Embedding sequences for IPA and tone/stress, then Add two embedding sequences to form the final input embedding; 
 
-    <p><strong>Tacotron:</strong> Tacotron2 pre-trained using <phonemes, audio> paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute <phonemes, audio> paired data from the target speakers (namely p225 and p226);</p>
-    <p><strong>MD-Tacotron:</strong> The proposed system pre-trained using <phonemes, audio>$and <ULUs, audio> paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute <phonemes, audio> and <ULUs, audio> paired data from the target speakers (namely p225 and p226);</p>
+    2) UEI: use Unified Embedding for IPA and tone/stress, then take each embedding as an Independent input in the final input embedding.</p>
+
+
+
+    <p>The following samples refer to Section 4.1 in the paper, in which we investigate whether two different input modules impact the crosslingual voice cloning performance. The models investigated include MSEA(the model with SEA) and MUEI(the model with UEI).</p>
+
 
 
 
 
 <!--    <p><strong><mark>Supervised speaker adaptation (SSA)</mark></strong></p>-->
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tacotron   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  MD-Tacotron  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
 
 
-    <p><b>Speaker p225:</b></p>
+    <p><b>CHINESE TEXT:</b></p>
 
-    <p><i>Text: "YOU ARE A GREAT PLAYER."</i></p>
+    <p><i>Text: "你想玩点什么."</i></p>
+
+
+
+
+    <p>Ground-Truth</p> <audio controls>
+        <source src="wavs/demo1/GT/test_CH/GT_test_CH_GT_009.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  MSEA
+        &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  MUEI  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
+
+
+    <p>Chinese speaker/p>
 
     <audio controls>
-        <source src="wavs/TTS/p225/system0/p225_208.wav" type="audio/wav">
+        <source src="wavs/demo1/SEA/test_CH/SEA_test_CH_Biaobei_009.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
 
 
     <audio controls>
-        <source src="wavs/TTS/p225/system1/p225_208.wav" type="audio/wav">
+        <source src="wavs/demo1/SEI/test_CH/SEI_test_CH_Biaobei_009.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
 
+
+
+    <p>English speaker/p>
 
     <audio controls>
-        <source src="wavs/TTS/p225/system2/p225_208.wav" type="audio/wav">
-            您的浏览器不支持该音频格式。
+        <source src="wavs/demo1/SEA/test_CH/SEA_test_CH_Biaobei_009.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
     </audio>
+
+    <audio controls>
+        <source src="wavs/demo1/SEI/test_CH/SEI_test_CH_Biaobei_009.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
 
 
     <!--<audio controls>
